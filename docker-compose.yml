@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  application:
+    build: .
+    ports:
+      - 8080:8080
+    networks:
+        - farmers-net
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/farmers_db
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13.3
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - farmers-net
+    environment:
+        - POSTGRES_USER=user
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_DB=farmers_db
+networks:
+  farmers-net:
+    driver: bridge

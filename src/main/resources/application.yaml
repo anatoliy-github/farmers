@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/farmers_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        jdbc.batch_size: 20
+    show-sql: true
+  sql:
+    init:
+      mode: always
+app:
+  pagination:
+    district:
+      first: 1
+      size: 6
+    farmer:
+      first: 1
+      size: 3
+springdoc:
+  swagger-ui:
+    path: /doc
