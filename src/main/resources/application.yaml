@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://nginx-db-1:5432/farmers_db
+    url: jdbc:postgresql://localhost:5432/farmers_db
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
